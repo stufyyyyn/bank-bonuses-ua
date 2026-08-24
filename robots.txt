@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bank-bonuses-ua.vercel.app/sitemap.xml
+# Sitemaps
+Sitemap: https://bankbonuses.pp.ua/sitemap.xml
