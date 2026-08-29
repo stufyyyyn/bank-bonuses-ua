@@ -1,0 +1,23 @@
+{
+  "name": "bank-bonuses-ua",
+  "version": "1.0.0",
+  "description": "Ukrainian bank card bonuses website with Vercel Web Analytics",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stufyyyyn/bank-bonuses-ua.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stufyyyyn/bank-bonuses-ua/issues"
+  },
+  "homepage": "https://github.com/stufyyyyn/bank-bonuses-ua#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
