@@ -1,1 +1,15 @@
+# Antigravity metadata
 *.metadata.json
+
+# Environment
+.env
+.env.local
+.env.production
+
+# System
+.DS_Store
+Thumbs.db
+
+# Node (if any future deps)
+node_modules/
+.vercel/
