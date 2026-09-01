@@ -61,11 +61,16 @@ const BANKS = {
     label: '🟪 VST bank',
     bonus: '100 ₴',
   },
+  'raif': {
+    url: 'https://mrf-static.apps.raiffeisen.ua/v1/member-get-member?adj_t=1s492itc_1szn7s6p&ref_id=15585967&adj_deep_link=app%3A%2F%2Fmember-get-member?label=ref_id15585967',
+    label: '💛 Райффайзен (Райф)',
+    bonus: 'до 400 ₴',
+  },
 };
 
 const BANK_ORDER = [
   'monobank', 'privat-gaming', 'privat-universal', 'alliance',
-  'novapay', 'obank', 'abank', 'bvr', 'globus', 'vst',
+  'novapay', 'obank', 'abank', 'bvr', 'globus', 'vst', 'raif',
 ];
 
 /* ── Redis helpers (Upstash REST, no SDK) ───────────────── */
