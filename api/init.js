@@ -1,13 +1,11 @@
 /**
  * /api/init.js — One-time setup
- * Відправляє першу статистику у Telegram канал.
- * Запустити ОДИН РАЗ після деплою: GET https://bankbonuses.pp.ua/api/init
+ * Відправляє початкове повідомлення зі статистикою у Telegram канал.
+ * Запустити ОДИН РАЗ: GET https://bankbonuses.pp.ua/api/init
  * Зберегти повернутий message_id як TELEGRAM_MESSAGE_ID у Vercel env vars.
- *
- * Env vars required:
- *   TELEGRAM_BOT_TOKEN
- *   TELEGRAM_CHAT_ID
  */
+
+import { getStats, buildMessageText } from './_stats.js';
 
 export default async function handler(req, res) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -19,25 +17,8 @@ export default async function handler(req, res) {
     });
   }
 
-  const text = [
-    '📊 <b>BankBonuses.pp.ua — Статистика переходів</b>',
-    '',
-    '🖤 monobank (100 ₴) — <b>0</b> переходів',
-    '🎮 ПриватБанк (Ігрова) (150 ₴) — <b>0</b> переходів',
-    '💳 ПриватБанк (Універсальна) (150 ₴) — <b>0</b> переходів',
-    '🔵 Alliance Bank (200 ₴) — <b>0</b> переходів',
-    '🔴 NovaPay (250 ₴) — <b>0</b> переходів',
-    '🟣 O.Bank (400 ₴) — <b>0</b> переходів',
-    '🟢 А-Банк (100 ₴) — <b>0</b> переходів',
-    '🟠 БВР (Сільпо) (100 ₴) — <b>0</b> переходів',
-    '🔷 GlobusPlus (100 ₴) — <b>0</b> переходів',
-    '🟪 VST bank (100 ₴) — <b>0</b> переходів',
-    '💛 Райффайзен (Райф) (200 ₴) — <b>0</b> переходів',
-    '',
-    '━━━━━━━━━━━━━━━━━━━━',
-    '📈 <b>Всього: 0</b> переходів',
-    '🕐 Ініціалізовано',
-  ].join('\n');
+  const stats = await getStats();
+  const text = buildMessageText(stats);
 
   const response = await fetch(
     `https://api.telegram.org/bot${token}/sendMessage`,
